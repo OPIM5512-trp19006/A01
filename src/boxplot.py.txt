@@ -1,0 +1,20 @@
+from sklearn.datasets import fetch_california_housing
+import pandas as pd
+
+# Load California Housing dataset
+housing = fetch_california_housing(as_frame=True)
+
+# Features + target as a single DataFrame
+df = housing.frame
+
+# Quick check
+print(df.head())
+print(df.shape)
+
+plt.figure(figsize=(8, 5))
+plt.boxplot(df["MedInc"], vert=True)
+plt.title("CA Housing: MedInc boxplot")
+plt.ylabel("MedInc")
+plt.grid(True, alpha=0.3)
+plt.savefig("../figs/boxplot.png", dpi=200, bbox_inches="tight")
+plt.close()
